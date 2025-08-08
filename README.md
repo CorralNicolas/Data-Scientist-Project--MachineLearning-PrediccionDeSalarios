@@ -85,3 +85,43 @@ Modelo final entrenado:
 ```python
 model = lgb.LGBMRegressor(force_col_wise=True)
 model.fit(X_train, Y_train)
+```
+
+**Rendimiento del modelo:**
+
+- ✅ R² Score ≈ 0.70  
+- 📉 Error (RMSE) calculado con `mean_squared_error`
+
+---
+
+## 🤖 Clustering de Perfiles Salariales
+
+Se aplicó un algoritmo de **K-Means** para agrupar perfiles según:
+
+- `totalyearlycompensation`, `basesalary`, `Antiguedad`, `title`
+
+Evaluaciones realizadas para determinar el número óptimo de clusters:
+
+- 🔹 Método del codo (Inercia)
+- 🔸 Índice de **Davies-Bouldin**
+- 🔺 Score de **Silhouette**
+
+> 🔸 Se seleccionaron **3 clusters** representando distintos tipos de perfiles salariales.
+
+---
+
+## 📌 Conclusiones
+
+- El modelo logró predecir el salario total anual con un R² aceptable (~0.7), demostrando la relevancia de variables como la experiencia, antigüedad y salario base.
+- El análisis exploratorio permitió identificar outliers y relaciones clave entre variables.
+- El clustering identificó grupos salariales distintos que pueden ser útiles para estrategias de compensación o benchmarking interno en empresas.
+
+---
+
+## 🛠️ Tecnologías y Librerías Usadas
+
+- **Python**
+- `pandas`, `numpy`, `seaborn`, `matplotlib`, `plotly`
+- `scikit-learn`, `lightgbm`, `statsmodels`, `missingno`
+- `LazyPredict`, `mlxtend`
+- `KMeans`, `StandardScaler`, `LabelEncoder`
